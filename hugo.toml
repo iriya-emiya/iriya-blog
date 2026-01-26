@@ -1,4 +1,40 @@
 baseURL = "https://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
-theme = "PaperMod"
+languageCode = "zh-cn"
+title = "天鹅座的博客"
+theme = "Mana"
+[params]
+  description = "天鹅座的个人博客，分享技术、生活与思考"
+  favicon = "/favicon/favicon.ico"
+  footerText = "© 2026 天鹅座"
+  
+  heroTitleLine1 = "天鹅座的博客"
+  heroTitleLine2 = "记录点滴，分享世界"
+
+[params.avatar]
+  url = "https://yourdomain.com/avatar.jpg"   # 你的头像
+
+[params.social]
+  github = "https://github.com/iriya-emiya"
+  weibo = "https://weibo.com/yourusername"
+  email = "qianheshuiyuan100@gmail.com"
+
+[[menus.main]]
+  name = '首页'
+  pageRef = '/'
+  weight = 10
+
+[[menus.main]]
+  name = '文章'
+  pageRef = '/posts'
+  weight = 20
+
+[[menus.main]]
+  name = '标签'
+  pageRef = '/tags'
+  weight = 30
+
+[[menus.main]]
+  name = '关于'
+  url = '/about/'
+  weight = 40
+
