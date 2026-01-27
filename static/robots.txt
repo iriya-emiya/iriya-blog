@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# 爬虫延迟（毫秒）
+Crawl-delay: 0
+
+# 站点地图
+Sitemap: https://cygnus.cafe/sitemap.xml

@@ -1,0 +1,11 @@
+name = "Cygnus Cafe"
+license = "MIT"
+description = "基于原始惊艳设计的星空咖啡馆主题 - 完美的网络安全博客主题"
+homepage = "https://github.com/yourusername/cygnus-cafe"
+tags = ["blog", "personal", "cybersecurity", "dark-theme", "chinese", "星空", "咖啡馆"]
+features = ["responsive", "animations", "starfield", "dark-mode"]
+min_version = "0.100.0"
+
+[author]
+  name = "Cygnus Cafe"
+  homepage = "https://cygnus.cafe"

@@ -1,0 +1,36 @@
+project_name = "Cygnus Cafe Blog"
+description = "基于Hugo的个人网络安全博客"
+version = "1.0.0"
+last_updated = "2026-01-27"
+
+# 快速命令参考
+commands = [
+  { cmd = "hugo server -D", desc = "开发模式（包括草稿）" },
+  { cmd = "hugo --minify", desc = "构建生产版本" },
+  { cmd = "hugo new posts/title.md", desc = "创建新文章" }
+]
+
+# 重要提示
+important = [
+  "修改hugo.toml中的author和social字段为真实信息",
+  "在hugo.toml中配置Google Analytics和其他分析工具",
+  "在部署前通过hugo server -D测试所有内容",
+  "定期更新主题以获取最新功能和安全补丁",
+  "使用github.com中的管理界面配置GitHub Pages"
+]
+
+# 文件清单
+[critical_files]
+hugo_config = "hugo.toml"
+theme_config = "themes/cygnus-cafe/theme.toml"
+custom_css = "static/css/custom.css"
+article_template = "archetypes/default.md"
+ci_workflow = ".github/workflows/deploy.yml"
+seo_config = "layouts/partials/meta-tags.html"
+
+[directories]
+articles = "content/posts/"
+static_files = "static/"
+layouts = "layouts/"
+theme = "themes/cygnus-cafe/"
+output = "public/"

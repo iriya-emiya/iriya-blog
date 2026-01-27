@@ -1,598 +1,556 @@
-<!doctype html>
-<html
-  lang="zh-cn"
-  dir="ltr"
-  class="h-full">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="language" content="zh-cn">
-<script>
-  
-  (function () {
-    const storedTheme = localStorage.getItem("theme");
-    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
-    document.documentElement.setAttribute("data-theme", theme);
-  })();
-</script>
-<title>Test1 | 天鹅座的博客</title>
-<meta
-  name="description"
-  content="
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="网络安全学习笔记 · 技术探索 · 生活感悟">
+    <meta name="author" content="天鹅座">
     
-  
-  ">
-
-
-
-
-
-
-<link rel="canonical" href="http://localhost:1313/posts/test1/">
-
-<meta name="robots" content="index, follow">
-
-
-<meta property="og:type" content="article">
-<meta property="og:title" content="Test1 | 天鹅座的博客">
-<meta property="og:description" content="">
-<meta property="og:url" content="http://localhost:1313/posts/test1/">
-<meta property="og:site_name" content="天鹅座的博客"><meta property="og:image" content="https://yourdomain.com/avatar.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630"><meta property="article:published_time" content="2026-01-26T17:39:33&#43;09:00">
-  <meta
-    property="article:modified_time"
-    content="2026-01-26T17:39:33&#43;09:00">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Test1 | 天鹅座的博客">
-<meta name="twitter:description" content=""><meta name="twitter:image" content="https://yourdomain.com/avatar.jpg">
-
-<script type="application/ld+json">
-
-
-
-
-
-
-
-
-
-
-"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"email\":\"qianheshuiyuan100@gmail.com\",\"name\":\"天鹅座的博客\"},\"dateModified\":\"2026-01-26T17:39:33+09:00\",\"datePublished\":\"2026-01-26T17:39:33+09:00\",\"description\":\"\",\"headline\":\"Test1\",\"image\":\"https://yourdomain.com/avatar.jpg\",\"mainEntityOfPage\":{\"@id\":\"http://localhost:1313/posts/test1/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://yourdomain.com/avatar.jpg\"},\"name\":\"天鹅座的博客\"}}"</script>
-
-
-
-  
-  
-  
+    <title>Test1 | Cygnus Cafe - 天鹅座咖啡馆</title>
     
-  
-  
-<script type="application/ld+json">"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/\",\"name\":\"天鹅座的博客\",\"position\":1},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/\",\"name\":\"Posts\",\"position\":2},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/test1/\",\"name\":\"Test1\",\"position\":3}]}"</script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Long+Cang&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/css/custom.css">
+    
+    
+    
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/test1/">
+  <meta property="og:site_name" content="Cygnus Cafe - 天鹅座咖啡馆">
+  <meta property="og:title" content="Test1">
+  <meta property="og:description" content="网络安全学习笔记 · 技术探索 · 生活感悟">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-01-26T17:39:33+09:00">
+    <meta property="article:modified_time" content="2026-01-26T17:39:33+09:00">
 
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Test1">
+  <meta name="twitter:description" content="网络安全学习笔记 · 技术探索 · 生活感悟">
 
+</head>
+<body>
+    <header class="site-header">
+    <a href="/" class="logo">
+        <span class="logo-icon">🦢</span>
+        <div class="logo-text">
+            <div class="logo-main">Cygnus Cafe</div>
+            <div class="logo-sub">天鹅座咖啡馆</div>
+        </div>
+    </a>
+    <nav class="nav">
+        
+        <a href="/" class="nav-link">首页</a>
+        
+        <a href="/categories/security/" class="nav-link">安全笔记</a>
+        
+        <a href="/categories/learning/" class="nav-link">渗透测试</a>
+        
+        <a href="/categories/life/" class="nav-link">生活分享</a>
+        
+        <a href="/about/" class="nav-link">关于</a>
+        
+        <div class="nav-icons">
+            <a href="http://localhost:1313/index.xml" aria-label="RSS订阅">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 11a9 9 0 0 1 9 9"></path>
+                    <path d="M4 4a16 16 0 0 1 16 16"></path>
+                    <circle cx="5" cy="19" r="1"></circle>
+                </svg>
+            </a>
+        </div>
+    </nav>
+</header>
 
+<style>
+ 
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+}
 
+ 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+}
 
+.logo-icon {
+    font-size: 2.5rem;
+    display: inline-block;
+    animation: rotate 30s linear infinite;
+}
 
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-  rel="stylesheet">
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
 
+.logo-main {
+    font-family: 'Long Cang', cursive;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--cafe-latte);
+    letter-spacing: 0.05em;
+}
 
-<link
-  rel="stylesheet"
-  href="/css/theme.min.86a32b729f656fc6c119ed69193950db815a3ad9fdc967b32c76d602f11449a4.css"
-  integrity="sha256-hqMrcp9lb8bBGe1pGTlQ24FaOtn9yWezLHbWAvEUSaQ=">
+.logo-sub {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 0.75rem;
+    line-height: 1;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    font-weight: 400;
+}
 
-<link
-    rel="stylesheet"
-    href="/css/syntax-dark.min.b01037e5609e6260b74d6fcdd6d5131e8dcbc4d46d6ef4bfbe5a60bdfc1a9f30.css"
-    integrity="sha256-sBA35WCeYmC3TW/N1tUTHo3LxNRtbvS/vlpgvfwanzA="
-    id="syntax-dark-theme"
-    class="syntax-theme"><link
-    rel="stylesheet"
-    href="/css/syntax-light.min.9602bc2fcef52b4c62e05eae14b48ba428e114f116e993e504d83ed5a3aeda98.css"
-    integrity="sha256-lgK8L871K0xi4F6uFLSLpCjhFPEW6ZPlBNg&#43;1aOu2pg="
-    id="syntax-light-theme"
-    class="syntax-theme"
-    disabled><script>
-  
-  (function () {
-    const storedTheme = localStorage.getItem("theme");
-    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
+ 
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
 
-    const syntaxDark = document.getElementById("syntax-dark-theme");
-    const syntaxLight = document.getElementById("syntax-light-theme");
+.nav-link {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
 
-    if (theme === "light") {
-      if (syntaxDark) syntaxDark.disabled = true;
-      if (syntaxLight) syntaxLight.disabled = false;
-    } else {
-      if (syntaxDark) syntaxDark.disabled = false;
-      if (syntaxLight) syntaxLight.disabled = true;
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--border);
+}
+
+.nav-icons a:hover {
+    color: var(--cafe-latte);
+}
+
+.nav-icons a {
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
     }
-
     
-    const observer = new MutationObserver(() => {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      if (currentTheme === "light") {
-        if (syntaxDark) syntaxDark.disabled = true;
-        if (syntaxLight) syntaxLight.disabled = false;
-      } else {
-        if (syntaxDark) syntaxDark.disabled = false;
-        if (syntaxLight) syntaxLight.disabled = true;
-      }
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-theme"],
-    });
-  })();
-</script>
+    .nav {
+        gap: 1.5rem;
+    }
+}
+</style>
 
 
-
-
-<link
-  rel="stylesheet"
-  href="/css/bundle.min.d430be27649a3685c7891f7076e3e50f97bf39aabb96c243b89902f3dc6c9ead.css"
-  integrity="sha256-1DC&#43;J2SaNoXHiR9wduPlD5e/Oaq7lsJDuJkC89xsnq0=">
-
-
-
-
-
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-
-<link rel="icon" type="image/png" href="/favicon.png">
-
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon/logo-transparent/favicon-32x32.png">
-
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon/logo-transparent/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon/logo-transparent/apple-touch-icon.png">
-<link
-  rel="icon"
-  type="image/png"
-  sizes="192x192"
-  href="/favicon/logo-transparent/android-chrome-192x192.png">
-<link
-  rel="icon"
-  type="image/png"
-  sizes="512x512"
-  href="/favicon/logo-transparent/android-chrome-512x512.png">
-<link rel="manifest" href="/favicon/logo-transparent/site.webmanifest">
-
-
-
-
-  
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      href="/index.xml"
-      title="天鹅座的博客">
-  
-
-
-
-
-  </head>
-  <body class="flex flex-col min-h-screen">
-    <a href="#main-content" class="skip-to-main" aria-label="Skip to main content"
-      >Skip to main content</a
-    >
-    <header class="sticky-header">
-      <div class="header-container">
-        <nav class="header-nav" role="navigation" aria-label="Main navigation">
-  <div class="header-content">
-    <div class="header-logo">
-      <a href="/" class="logo-link" aria-label="Home - 天鹅座的博客">
-        天鹅座的博客
-      </a>
-    </div>
-
-    
-    <button 
-      id="mobile-menu-toggle" 
-      class="mobile-menu-toggle" 
-      aria-label="Toggle menu" 
-      aria-expanded="false"
-      type="button">
-      <span class="hamburger-icon">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </span>
-    </button>
-
-    <div class="header-menu">
-      <ul class="menu-list">
-  
-    <li class="menu-item">
-      <a
-        href="/"
-        class="menu-link ">
-        首页
-      </a>
-    </li>
-  
-    <li class="menu-item">
-      <a
-        href="/posts/"
-        class="menu-link ">
-        文章
-      </a>
-    </li>
-  
-    <li class="menu-item">
-      <a
-        href="/tags/"
-        class="menu-link ">
-        标签
-      </a>
-    </li>
-  
-    <li class="menu-item">
-      <a
-        href="/about/"
-        class="menu-link ">
-        关于
-      </a>
-    </li>
-  
-</ul>
-
-
-      <button id="search-toggle" class="search-toggle" aria-label="Search" type="button">
-        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-      </button>
-
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
-  <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-  </svg>
-  <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-  </svg>
-</button>
-
-    </div>
-  </div>
-
-  
-  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
-    <div class="mobile-menu-overlay"></div>
-    <div class="mobile-menu-content">
-      <div class="mobile-menu-header">
-        <span class="mobile-menu-title">Menu</span>
-        <button 
-          id="mobile-menu-close" 
-          class="mobile-menu-close" 
-          aria-label="Close menu" 
-          type="button">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-      <nav class="mobile-menu-nav" role="navigation" aria-label="Mobile navigation">
-        <ul class="menu-list">
-  
-    <li class="menu-item">
-      <a
-        href="/"
-        class="menu-link ">
-        首页
-      </a>
-    </li>
-  
-    <li class="menu-item">
-      <a
-        href="/posts/"
-        class="menu-link ">
-        文章
-      </a>
-    </li>
-  
-    <li class="menu-item">
-      <a
-        href="/tags/"
-        class="menu-link ">
-        标签
-      </a>
-    </li>
-  
-    <li class="menu-item">
-      <a
-        href="/about/"
-        class="menu-link ">
-        关于
-      </a>
-    </li>
-  
-</ul>
-
-      </nav>
-      <div class="mobile-menu-footer">
-        <button id="mobile-search-toggle" class="mobile-search-toggle" aria-label="Search" type="button">
-          <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-          <span>Search</span>
-        </button>
-        <button class="theme-toggle" aria-label="Toggle theme" type="button">
-          <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-          </svg>
-          <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</nav>
-
-      </div>
+    <main>
+        
+<article class="single-post">
+    <header class="post-header">
+        <div class="post-meta-top">
+            <div class="post-date">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <time datetime="2026-01-26">2026年1月26日</time>
+            </div>
+            
+        </div>
+        
+        <h1 class="post-title">Test1</h1>
+        
+        
+        
+        
     </header>
-
-    <main id="main-content" class="flex-1" role="main">
-      
-  <div class="single-post-wrapper">
-    <article class="single-post">
-      
-
-
-
-
-
-
-
-      <header class="post-header">
-        <h1 class="post-title-main">Test1</h1>
-
-        
-
-        <div class="post-meta">
-  <div class="post-meta-info">
-    <time datetime="2026-01-26T17:39:33&#43;09:00" class="post-date">
-      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-      </svg>
-      January 26, 2026
-    </time>
-
-    <span class="meta-separator">•</span>
-
     
-
-    
-  </div>
-
-  
-</div>
-
-      </header>
-
-      <div class="post-content-main">
+    <div class="post-content">
         
-      </div>
-
-      
-
-
-      <nav class="post-navigation" aria-label="Post navigation">
-        
-
-        
-      </nav>
-    </article>
-
-    
-  <aside class="post-toc" id="post-toc" aria-label="Table of contents">
-    <button
-      class="toc-toggle"
-      id="toc-toggle"
-      aria-expanded="true"
-      aria-controls="toc-content"
-      aria-label="Toggle table of contents">
-      <svg
-        class="toc-burger-icon"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true">
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-      <span class="toc-toggle-text">Table of Contents</span>
-      <svg
-        class="toc-chevron-icon"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true">
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
-    </button>
-    <div class="toc-content" id="toc-content">
-      <nav class="toc-nav" aria-label="Table of contents">
-        <nav id="TableOfContents"></nav>
-      </nav>
     </div>
-  </aside>
+    
+    <footer class="post-footer-meta">
+        <div class="post-nav">
+            
+            
+            
+        </div>
+    </footer>
+</article>
 
+<style>
+.single-post {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
 
-  </div>
+.post-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.post-meta-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.post-categories {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.category-link {
+    padding: 0.4rem 1rem;
+    background: rgba(212, 165, 116, 0.15);
+    border: 1px solid rgba(212, 165, 116, 0.3);
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: var(--cafe-latte);
+}
+
+.post-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.post-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 1.5rem 0;
+}
+
+.post-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.tag-link {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.9;
+}
+
+.post-footer-meta {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border);
+}
+
+.post-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.post-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.post-nav-item:hover {
+    background: var(--card-hover);
+    transform: translateY(-4px);
+}
+
+.post-nav-next {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.nav-label {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+}
+
+.nav-title {
+    font-size: 1rem;
+    color: var(--cafe-latte);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .single-post {
+        padding: 2rem 1.5rem;
+    }
+    
+    .post-title {
+        font-size: 2rem;
+    }
+    
+    .post-meta-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+</style>
 
     </main>
 
-    <footer>
-      <footer class="site-footer">
-  <div class="footer-content">
-    <p class="footer-text">
-      &copy;
-      
-      2026
-      
-      天鹅座的博客.
-      
-        © 2026 天鹅座
-      
-    </p>
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <div class="footer-logo">
+                <span class="footer-swan">🦢</span>
+                <span class="footer-logo-text">Cygnus Cafe</span>
+            </div>
+            <p class="footer-description">
+                在星空下品一杯知识，在咖啡香中记录成长。这里是天鹅座咖啡馆，一个温暖的数字空间，专注于网络安全学习和生活分享。
+            </p>
+            <div class="footer-social">
+                
+                <a href="https://github.com/iriya-emiya" target="_blank" rel="noopener" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                
+                
+                <a href="mailto:qianheshuiyuan419@gmail.com" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                </a>
+                
+                
+                
+                <a href="http://localhost:1313/index.xml" aria-label="RSS">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-links">
+            <h4>内容分类</h4>
+            <ul>
+                <li><a href="/categories/security/">网络安全</a></li>
+                <li><a href="/categories/learning/">渗透测试</a></li>
+                <li><a href="/categories/life/">生活分享</a></li>
+                <li><a href="/tags/">标签云</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-links">
+            <h4>关于本站</h4>
+            <ul>
+                <li><a href="/about/">关于我</a></li>
+                <li><a href="/links/">友情链接</a></li>
+                <li><a href="/posts/">文章归档</a></li>
+                <li><a href="/index.xml">RSS订阅</a></li>
+            </ul>
+        </div>
+    </div>
     
-      <div class="footer-social">
-        <div class="social-links">
-  
-    <a
-      href="https://github.com/iriya-emiya"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="social-link"
-      aria-label="GitHub">
-      <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          fill-rule="evenodd"
-          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-          clip-rule="evenodd"></path>
-      </svg>
-    </a>
-  
-
-  
-
-  
-    <a href="mailto:qianheshuiyuan100@gmail.com" class="social-link" aria-label="Email">
-      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-      </svg>
-    </a>
-  
-</div>
-
-      </div>
-    
-  </div>
+    <div class="footer-bottom">
+        <p>© 2026 <a href="http://localhost:1313/">Cygnus Cafe</a> · 在星空下品一杯知识 ☕✨</p>
+    </div>
 </footer>
 
-    </footer>
+<style>
+.footer {
+    background: rgba(10, 14, 39, 0.8);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border);
+    margin-top: 6rem;
+    padding: 4rem 4rem 2rem;
+}
 
-    <div id="search-modal" class="search-modal" aria-hidden="true" role="dialog" aria-label="Search">
-  <div class="search-modal-backdrop" id="search-modal-backdrop"></div>
-  <div class="search-modal-container">
-    <div class="search-input-wrapper">
-      <svg class="search-input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-      </svg>
-      <input
-        type="search"
-        id="search-input"
-        class="search-input"
-        placeholder="Search..."
-        autocomplete="off"
-        aria-label="Search input">
-      <button class="search-input-clear" id="search-input-clear" aria-label="Clear search">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-        </svg>
-      </button>
-      <button class="search-modal-close" id="search-modal-close" aria-label="Close search">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-    </div>
-    <div id="search-results" class="search-results"></div>
-  </div>
-</div>
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+ 
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.footer-swan {
+    font-size: 2rem;
+     
+}
+
+.footer-logo-text {
+    font-family: 'Long Cang', cursive;
+    font-size: 1.5rem;
+    color: var(--cafe-latte);
+}
+
+.footer-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(42, 47, 74, 0.6);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+}
+
+.footer-social a:hover {
+    background: rgba(212, 165, 116, 0.2);
+    color: var(--cafe-latte);
+    transform: translateY(-3px);
+}
+
+ 
+.footer-links h4 {
+    font-size: 1.1rem;
+    color: var(--cafe-cream);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--cafe-latte);
+}
+
+ 
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.footer-bottom a {
+    color: var(--cafe-latte);
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: var(--star-glow);
+}
+
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+    
+    .footer-left {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 3rem 1.5rem 1.5rem;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+</style>
+
 
     
-
-    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" type="button">
-  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-  </svg>
-</button>
-
-
-    
-
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.5809f4b25863ee26413f19a2183716d6a5b52e3a8bd308a7dd764fb5bd4d6d36.js" defer></script>
-
-  </body>
+    <script src="/js/cygnus-cafe.js"></script>
+</body>
 </html>

@@ -1,40 +1,90 @@
-baseURL = "https://example.org/"
-languageCode = "zh-cn"
-title = "天鹅座的博客"
-theme = "Mana"
+baseURL = "https://cygnus.cafe/"
+languageCode = "zh-CN"
+title = "Cygnus Cafe - 天鹅座咖啡馆"
+theme = "cygnus-cafe"
+
+# 启用功能
+enableEmoji = true
+enableRobotsTXT = true
+enableGitInfo = false
+
+# 内容摘要长度
+summaryLength = 200
+
 [params]
-  description = "天鹅座的个人博客，分享技术、生活与思考"
-  favicon = "/favicon/favicon.ico"
-  footerText = "© 2026 天鹅座"
+  description = "网络安全学习笔记 · 技术探索 · 生活感悟"
+  author = "天鹅座"
+  favicon = "favicon.ico"
   
-  heroTitleLine1 = "天鹅座的博客"
-  heroTitleLine2 = "记录点滴，分享世界"
+  # 自定义 CSS 和 JS
+  customCSS = ["css/custom.css"]
+  customJS = ["js/cygnus-cafe.js"]
+  
+  # SEO 优化
+  [params.seo]
+    image = "images/og-image.png"
+    twitterHandle = "@yourusername"
+  
+  # 首页标题
+  [params.home]
+    title = "在星空下品一杯知识"
+    subtitle = "网络安全学习笔记 · 技术探索 · 生活感悟"
+  
+  # 社交链接
+  [params.social]
+    github = "https://github.com/iriya-emiya"
+    email = "qianheshuiyuan419@gmail.com"
 
-[params.avatar]
-  url = "https://yourdomain.com/avatar.jpg"   # 你的头像
+# 菜单配置
+[menu]
+  [[menu.main]]
+    name = "首页"
+    url = "/"
+    weight = 1
+  
+  [[menu.main]]
+    name = "安全笔记"
+    url = "/categories/security/"
+    weight = 2
+  
+  [[menu.main]]
+    name = "渗透测试"
+    url = "/categories/learning/"
+    weight = 3
+  
+  [[menu.main]]
+    name = "生活分享"
+    url = "/categories/life/"
+    weight = 4
+  
+  [[menu.main]]
+    name = "关于"
+    url = "/about/"
+    weight = 5
 
-[params.social]
-  github = "https://github.com/iriya-emiya"
-  weibo = "https://weibo.com/yourusername"
-  email = "qianheshuiyuan100@gmail.com"
+  [[menu.footer]]
+    name = "网络安全"
+    url = "/categories/security/"
+  
+  [[menu.footer]]
+    name = "渗透测试"
+    url = "/categories/learning/"
+  
+  [[menu.footer]]
+    name = "生活分享"
+    url = "/categories/life/"
 
-[[menus.main]]
-  name = '首页'
-  pageRef = '/'
-  weight = 10
-
-[[menus.main]]
-  name = '文章'
-  pageRef = '/posts'
-  weight = 20
-
-[[menus.main]]
-  name = '标签'
-  pageRef = '/tags'
-  weight = 30
-
-[[menus.main]]
-  name = '关于'
-  url = '/about/'
-  weight = 40
-
+# Markdown 配置
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    lineNos = true
+    noClasses = false
+  
+  [markup.goldmark.renderer]
+    unsafe = true
+    hardWraps = true
+  
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3

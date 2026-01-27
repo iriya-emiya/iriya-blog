@@ -42,11 +42,9 @@
 
 .hero-title-line2 {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: 2.25rem;  /* 大小约主标题一半 */
   font-weight: 900;
-  color: transparent;
-  -webkit-text-stroke: 2px var(--accent-light-purple);
-  text-stroke: 2px var(--accent-light-purple);
+  color: var(--text-primary);  /* 与主标题颜色一致 */
   letter-spacing: -0.02em;
 }
 

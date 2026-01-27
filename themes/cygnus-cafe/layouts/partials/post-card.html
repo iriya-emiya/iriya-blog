@@ -1,0 +1,121 @@
+<article class="post-card">
+    <div class="post-meta">
+        <div class="post-date">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+        </div>
+        {{ with index .Params.categories 0 }}
+        <span class="post-category">{{ . }}</span>
+        {{ end }}
+    </div>
+    <h3 class="post-title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h3>
+    <p class="post-excerpt">
+        {{ if .Description }}
+            {{ .Description }}
+        {{ else }}
+            {{ .Summary | truncate 120 }}
+        {{ end }}
+    </p>
+    <div class="post-footer">
+        <a href="{{ .RelPermalink }}" class="read-more">
+            阅读全文
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+        </a>
+        {{ if .Params.tags }}
+        <div class="post-tags">
+            {{ range first 2 .Params.tags }}
+            <span class="post-tag">#{{ . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</article>
+
+<style>
+.post-card {
+    /* Styles are inherited from custom.css */
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.post-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+.post-category {
+    padding: 0.3rem 0.8rem;
+    background: rgba(212, 165, 116, 0.15);
+    border: 1px solid rgba(212, 165, 116, 0.3);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    color: var(--cafe-latte);
+}
+
+.post-title {
+    font-size: 1.6rem;
+    margin: 1rem 0;
+}
+
+.post-title a {
+    color: var(--cafe-cream);
+    transition: color 0.3s ease;
+}
+
+.post-title a:hover {
+    color: var(--cafe-latte);
+}
+
+.post-excerpt {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.read-more {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: gap 0.3s ease;
+}
+
+.read-more:hover {
+    gap: 1rem;
+}
+
+.post-tags {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.post-tag {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+</style>

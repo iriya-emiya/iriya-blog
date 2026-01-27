@@ -1,0 +1,11 @@
+/* 覆盖 Mana hero 副标题大小 */
+.hero-title-line2,
+.hero-subtitle {
+    font-size: 1.1rem !important;  /* 四分之一大小 */
+}
+
+
+
+
+
+

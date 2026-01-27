@@ -1,0 +1,80 @@
+# Cygnus Cafe 主题配置
+baseURL = "https://cygnus.cafe/"
+languageCode = "zh-CN"
+title = "Cygnus Cafe - 天鹅座咖啡馆"
+theme = "cygnus-cafe"
+
+enableEmoji = true
+paginate = 9
+
+[params]
+  description = "网络安全学习笔记 · 技术探索 · 生活感悟"
+  author = "Your Name"
+  subtitle = "天鹅座咖啡馆"
+  
+  # 社交链接
+  github = "https://github.com/yourusername"
+  email = "your-email@example.com"
+  twitter = "https://twitter.com/yourusername"
+  instagram = "https://instagram.com/yourusername"
+
+[menu]
+  [[menu.main]]
+    name = "首页"
+    url = "/"
+    weight = 1
+  
+  [[menu.main]]
+    name = "安全笔记"
+    url = "/categories/security/"
+    weight = 2
+  
+  [[menu.main]]
+    name = "学习记录"
+    url = "/categories/learning/"
+    weight = 3
+  
+  [[menu.main]]
+    name = "生活分享"
+    url = "/categories/life/"
+    weight = 4
+  
+  [[menu.main]]
+    name = "关于"
+    url = "/about/"
+    weight = 5
+
+  [[menu.footer]]
+    name = "网络安全"
+    url = "/categories/security/"
+  
+  [[menu.footer]]
+    name = "学习记录"
+    url = "/categories/learning/"
+  
+  [[menu.footer]]
+    name = "生活分享"
+    url = "/categories/life/"
+
+  [[menu.about]]
+    name = "关于我"
+    url = "/about/"
+  
+  [[menu.about]]
+    name = "文章归档"
+    url = "/posts/"
+  
+  [[menu.about]]
+    name = "RSS订阅"
+    url = "/index.xml"
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    lineNos = true
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"

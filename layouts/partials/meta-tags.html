@@ -1,0 +1,53 @@
+<!-- Meta Tags for SEO and Social Sharing -->
+{{ $image := .Params.image | default .Site.Params.seo.image }}
+{{ $title := .Title | default .Site.Title }}
+{{ $description := .Summary | plainify | truncate 160 }}
+
+<!-- Basic Meta Tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{ $description }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<meta name="theme-color" content="#0a0e27">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+{{ if $image }}
+  <meta property="og:image" content="{{ $image | absURL }}">
+  <meta property="og:image:alt" content="{{ $title }}">
+{{ end }}
+{{ if .IsPage }}
+  <meta property="article:published_time" content="{{ .PublishDate.Format `2006-01-02T15:04:05Z07:00` }}">
+  <meta property="article:modified_time" content="{{ .Lastmod.Format `2006-01-02T15:04:05Z07:00` }}">
+  {{ range .Params.tags }}
+    <meta property="article:tag" content="{{ . }}">
+  {{ end }}
+{{ end }}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ .Permalink }}">
+<meta property="twitter:title" content="{{ $title }}">
+<meta property="twitter:description" content="{{ $description }}">
+{{ if .Site.Params.seo.twitterHandle }}
+  <meta property="twitter:creator" content="{{ .Site.Params.seo.twitterHandle }}">
+{{ end }}
+{{ if $image }}
+  <meta property="twitter:image" content="{{ $image | absURL }}">
+{{ end }}
+
+<!-- Additional Meta Tags -->
+<link rel="canonical" href="{{ .Permalink }}">
+{{ if .NextInSection }}
+  <link rel="next" href="{{ .NextInSection.Permalink }}">
+{{ end }}
+{{ if .PrevInSection }}
+  <link rel="prev" href="{{ .PrevInSection.Permalink }}">
+{{ end }}
+
+<!-- Search Engine Verification (if needed) -->
+<!-- <meta name="google-site-verification" content=""> -->
+<!-- <meta name="baidu-site-verification" content=""> -->
