@@ -2,49 +2,37 @@ name: Deploy Hugo Site
 
 on:
   push:
-    branches:
-      - main
-      - master
-  pull_request:
-    branches:
-      - main
-      - master
+    branches: ["main"]
+
+permissions:
+  contents: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: recursive
-      
-      - name: Setup Hugo
+          fetch-depth: 0
+
+      - name: Setup Node.js (专治高级 CSS 不编译)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Hugo (开启扩展版)
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
-      
-      - name: Build
+
+      - name: Build site
         run: hugo --minify
-      
+
       - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          cname: cygnus.cafe
-      
-      - name: Validate HTML
-        run: |
-          npm install -g html-validate
-          html-validate public/**/*.html || true
-      
-      - name: Check Links (PR only)
-        if: github.event_name == 'pull_request'
-        run: |
-          npm install -g broken-link-checker
-          blc http://localhost:1313 -r || true
-        continue-on-error: true
