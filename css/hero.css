@@ -1,0 +1,430 @@
+/* ========================================
+   Cygnus Cafe - Hero Section Styles
+   完全匹配参考设计
+   ======================================== */
+
+/* Logo 样式 - 两种不同字体 + 旋转天鹅 */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    animation: rotate 30s linear infinite;
+    display: inline-block;
+    transform-origin: center;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.logo-main {
+    font-family: 'Long Cang', cursive !important;
+    font-size: 1.6rem;
+    color: var(--cafe-latte);
+    letter-spacing: 0.05em;
+    line-height: 1;
+}
+
+.logo-sub {
+    font-family: 'Noto Sans SC', sans-serif !important;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    line-height: 1;
+}
+
+/* Hero Section - 宽松布局匹配参考图 */
+.hero {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 8rem 4rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.hero-content {
+    animation: fadeInLeft 1s ease-out;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.3rem;
+    background: linear-gradient(135deg, rgba(155, 126, 186, 0.2), rgba(107, 140, 206, 0.2));
+    border: 1px solid rgba(164, 184, 255, 0.3);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--star-bright);
+    margin-bottom: 2.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.hero h1 {
+    font-family: 'Noto Serif SC', serif !important;
+    font-size: 5.5rem !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+    margin-bottom: 2rem !important;
+    background: linear-gradient(135deg, var(--cafe-cream) 0%, var(--cafe-latte) 50%, var(--star-glow) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    line-height: 1.8;
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    margin-bottom: 2.5rem;
+    line-height: 2;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--cafe-mocha);
+}
+
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 3.5rem;
+}
+
+.hero-tags .tag {
+    padding: 0.6rem 1.2rem;
+    background: rgba(42, 47, 74, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    font-size: 0.95rem;
+    color: var(--cafe-latte);
+    transition: all 0.3s ease;
+}
+
+.hero-tags .tag:hover {
+    background: rgba(212, 165, 116, 0.15);
+    border-color: var(--cafe-latte);
+    transform: translateY(-2px);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.social-links a {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(42, 47, 74, 0.6);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+}
+
+.social-links a:hover {
+    background: rgba(212, 165, 116, 0.2);
+    color: var(--cafe-latte);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(212, 165, 116, 0.3);
+    border-color: var(--cafe-latte);
+}
+
+/* Cafe Card */
+.hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInRight 1s ease-out 0.2s both;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cafe-card {
+    background: linear-gradient(135deg, rgba(42, 47, 74, 0.8) 0%, rgba(26, 31, 58, 0.9) 100%);
+    padding: 3.5rem;
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    max-width: 480px;
+    backdrop-filter: blur(20px);
+    transition: transform 0.4s ease;
+}
+
+.cafe-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.cafe-card::before {
+    content: '✨';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 3rem;
+    opacity: 0.6;
+    animation: sparkle 2s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+}
+
+.cafe-icon {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 4px 8px rgba(212, 165, 116, 0.3));
+}
+
+.cafe-card h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--cafe-cream);
+}
+
+.cafe-card p {
+    color: var(--text-secondary);
+    line-height: 2;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.cafe-divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--cafe-mocha), transparent);
+    margin: 2.5rem 0;
+}
+
+.cafe-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(10, 14, 39, 0.4);
+    border-radius: 16px;
+    border: 1px solid rgba(212, 165, 116, 0.1);
+    transition: all 0.3s ease;
+}
+
+.stat:hover {
+    background: rgba(10, 14, 39, 0.6);
+    border-color: rgba(212, 165, 116, 0.2);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cafe-latte);
+    display: block;
+    font-family: 'Noto Serif SC', serif;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+/* Constellation */
+.constellation {
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    width: 400px;
+    height: 300px;
+    z-index: -1;
+    opacity: 0.15;
+    animation: constellationFloat 20s infinite ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes constellationFloat {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-30px, 20px); }
+}
+
+.constellation-line {
+    stroke: var(--star-glow);
+    stroke-width: 1;
+    fill: none;
+}
+
+.constellation-star {
+    fill: var(--star-bright);
+    filter: blur(1px);
+}
+
+/* Posts Section */
+.posts-section {
+    max-width: 1400px;
+    margin: 4rem auto 0;
+    padding: 0 4rem 6rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cafe-cream);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-title::before {
+    content: '📚';
+    font-size: 2rem;
+}
+
+.view-all {
+    color: var(--cafe-latte);
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.3s ease;
+}
+
+.view-all:hover {
+    gap: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 5rem 2rem 4rem;
+        gap: 4rem;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-description {
+        border-left: none;
+        padding-left: 0;
+        border-top: 3px solid var(--cafe-mocha);
+        padding-top: 1.5rem;
+    }
+
+    .hero-tags, .social-links {
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 4rem !important;
+    }
+
+    .cafe-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 3rem 1.5rem 3rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .cafe-card {
+        padding: 2.5rem;
+    }
+
+    .constellation {
+        width: 250px;
+        height: 200px;
+    }
+
+    .posts-section {
+        padding: 0 1.5rem 4rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .logo-icon {
+        font-size: 2rem;
+    }
+
+    .logo-main {
+        font-size: 1.3rem;
+    }
+}
