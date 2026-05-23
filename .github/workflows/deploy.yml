@@ -1,12 +1,3 @@
-name: Deploy Hugo Site
-
-on:
-  push:
-    branches: ["main"]
-
-permissions:
-  contents: write
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -17,12 +8,19 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Setup Node.js (专治高级 CSS 不编译)
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Setup Hugo (开启扩展版)
+      # --- 这里是拯救排版的关键步骤！ ---
+      - name: Install Dependencies
+        run: |
+          if [ -f package.json ]; then npm install; fi
+          if [ -f themes/cygnus-cafe/package.json ]; then cd themes/cygnus-cafe && npm install && cd ../../; fi
+      # -----------------------------------
+
+      - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
