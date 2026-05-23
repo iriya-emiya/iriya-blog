@@ -1,90 +1,108 @@
 baseURL = "https://cygnus.cafe/"
 languageCode = "zh-CN"
-title = "Cygnus Cafe - 天鹅座咖啡馆"
+title = "天鹅座X-1的学习笔记"
 theme = "cygnus-cafe"
 
-# 启用功能
 enableEmoji = true
 enableRobotsTXT = true
 enableGitInfo = false
 
-# 内容摘要长度
-summaryLength = 200
+summaryLength = 160
 
 [params]
-  description = "网络安全学习笔记 · 技术探索 · 生活感悟"
-  author = "天鹅座"
+  description = "深空中的技术探测：靶场实战、漏洞复现与安全研究记录"
+  author = "天鹅座X-1"
   favicon = "favicon.ico"
-  
-  # 自定义 CSS 和 JS
+  keywords = "靶场 Write-up, 漏洞复现, 渗透测试, 代码审计, 工具研究, 网络安全"
+
   customCSS = ["css/custom.css"]
   customJS = ["js/cygnus-cafe.js"]
-  
-  # SEO 优化
+
   [params.seo]
     image = "images/og-image.png"
-    twitterHandle = "@yourusername"
-  
-  # 首页标题
+    twitterHandle = ""
+
   [params.home]
-    title = "在星空下品一杯知识"
-    subtitle = "网络安全学习笔记 · 技术探索 · 生活感悟"
-  
-  # 社交链接
+    title = "深空中的技术探测"
+    subtitle = "靶场实战、漏洞复现与安全研究记录"
+
   [params.social]
     github = "https://github.com/iriya-emiya"
     email = "qianheshuiyuan419@gmail.com"
 
-# 菜单配置
 [menu]
   [[menu.main]]
     name = "首页"
     url = "/"
     weight = 1
-  
+
   [[menu.main]]
-    name = "安全笔记"
-    url = "/categories/security/"
+    name = "靶场 Write-up"
+    url = "/categories/writeup/"
     weight = 2
-  
+
   [[menu.main]]
-    name = "渗透测试"
-    url = "/categories/learning/"
+    name = "漏洞复现"
+    url = "/categories/vuln/"
     weight = 3
-  
+
   [[menu.main]]
-    name = "生活分享"
-    url = "/categories/life/"
+    name = "工具研究"
+    url = "/categories/tools/"
     weight = 4
-  
+
+  [[menu.main]]
+    name = "代码审计"
+    url = "/categories/audit/"
+    weight = 5
+
   [[menu.main]]
     name = "关于"
     url = "/about/"
-    weight = 5
+    weight = 6
 
   [[menu.footer]]
-    name = "网络安全"
-    url = "/categories/security/"
-  
-  [[menu.footer]]
-    name = "渗透测试"
-    url = "/categories/learning/"
-  
-  [[menu.footer]]
-    name = "生活分享"
-    url = "/categories/life/"
+    name = "靶场 Write-up"
+    url = "/categories/writeup/"
 
-# Markdown 配置
+  [[menu.footer]]
+    name = "漏洞复现"
+    url = "/categories/vuln/"
+
+  [[menu.footer]]
+    name = "工具研究"
+    url = "/categories/tools/"
+
+  [[menu.footer]]
+    name = "代码审计"
+    url = "/categories/audit/"
+
 [markup]
   [markup.highlight]
     style = "monokai"
     lineNos = true
     noClasses = false
-  
+
   [markup.goldmark.renderer]
     unsafe = true
     hardWraps = true
-  
+
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 3
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[privacy]
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.x]
+    enableDNT = true
+  [privacy.youtube]
+    privacyEnhanced = true
+
+[mediaTypes]
+  [mediaTypes."application/rss+xml"]
+    suffixes = ["xml"]

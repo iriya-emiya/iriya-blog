@@ -1,64 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<html lang="zh-CN">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="网络安全学习笔记 · 技术探索 · 生活感悟">
-    <meta name="author" content="天鹅座">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Posts | 天鹅座X-1的学习笔记</title>
+
+    <meta name="description" content="深空中的技术探测：靶场实战、漏洞复现与安全研究记录">
+    <meta name="author" content="天鹅座X-1">
+    <meta name="keywords" content="靶场 Write-up, 漏洞复现, 渗透测试, 代码审计, 工具研究, 网络安全">
+    <meta name="theme-color" content="#0a0a14">
+    <link rel="canonical" href="https://cygnus.cafe/posts/">
+
+    <meta property="og:site_name" content="天鹅座X-1的学习笔记">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cygnus.cafe/posts/">
+    <meta property="og:title" content="Posts">
+    <meta property="og:description" content="深空中的技术探测：靶场实战、漏洞复现与安全研究记录">
+    <meta property="og:image" content="https://cygnus.cafe/images/og-image.png">
     
-    <title>Posts | Cygnus Cafe - 天鹅座咖啡馆</title>
-    
-    
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://cygnus.cafe/posts/">
+    <meta name="twitter:title" content="Posts">
+    <meta name="twitter:description" content="深空中的技术探测：靶场实战、漏洞复现与安全研究记录">
+    <meta name="twitter:image" content="https://cygnus.cafe/images/og-image.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Long+Cang&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600&family=Long+Cang&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     
     <link rel="stylesheet" href="/css/custom.css">
     
-    
-    
-    <link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/posts/index.xml" title="Cygnus Cafe - 天鹅座咖啡馆">
-    
-    
-    
-    <meta property="og:url" content="http://localhost:1313/posts/">
-  <meta property="og:site_name" content="Cygnus Cafe - 天鹅座咖啡馆">
-  <meta property="og:title" content="Posts">
-  <meta property="og:description" content="网络安全学习笔记 · 技术探索 · 生活感悟">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="website">
 
     
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Posts">
-  <meta name="twitter:description" content="网络安全学习笔记 · 技术探索 · 生活感悟">
+    <link rel="alternate" type="application/rss&#43;xml" href="https://cygnus.cafe/posts/index.xml" title="天鹅座X-1的学习笔记">
+    
 
+    
+    
 </head>
 <body>
     <header class="site-header">
     <a href="/" class="logo">
-        <span class="logo-icon">🦢</span>
+        <svg class="logo-svg" width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            
+            <g class="logo-orbits">
+                <ellipse cx="24" cy="24" rx="20" ry="5.5" stroke="#c8d8ff" stroke-width="1.2" transform="rotate(18, 24, 24)" opacity="0.65"/>
+                <ellipse cx="24" cy="24" rx="16" ry="4.5" stroke="#a0b8ff" stroke-width="1" transform="rotate(-22, 24, 24)" opacity="0.5"/>
+                <ellipse cx="24" cy="24" rx="11" ry="3" stroke="#c8d8ff" stroke-width="0.9" transform="rotate(35, 24, 24)" opacity="0.6"/>
+                <ellipse cx="24" cy="24" rx="6" ry="1.8" stroke="#b8a0d0" stroke-width="0.7" transform="rotate(-8, 24, 24)" opacity="0.4"/>
+            </g>
+            
+            <circle cx="24" cy="24" r="3.5" fill="none" stroke="#c8d8ff" stroke-width="0.4" opacity="0.35" class="logo-singularity-glow"/>
+            
+            <circle cx="24" cy="24" r="1.5" fill="#c8d8ff" opacity="0.85" class="logo-singularity"/>
+        </svg>
         <div class="logo-text">
-            <div class="logo-main">Cygnus Cafe</div>
-            <div class="logo-sub">天鹅座咖啡馆</div>
+            <span class="logo-main">天鹅座X-1</span>
+            <span class="logo-sub">深空技术探测站</span>
         </div>
     </a>
     <nav class="nav">
         
-        <a href="/" class="nav-link">首页</a>
+        <a href="/">首页</a>
         
-        <a href="/categories/security/" class="nav-link">安全笔记</a>
+        <a href="/categories/writeup/">靶场 Write-up</a>
         
-        <a href="/categories/learning/" class="nav-link">渗透测试</a>
+        <a href="/categories/vuln/">漏洞复现</a>
         
-        <a href="/categories/life/" class="nav-link">生活分享</a>
+        <a href="/categories/tools/">工具研究</a>
         
-        <a href="/about/" class="nav-link">关于</a>
+        <a href="/categories/audit/">代码审计</a>
+        
+        <a href="/about/">关于</a>
         
         <div class="nav-icons">
-            <a href="http://localhost:1313/index.xml" aria-label="RSS订阅">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <a href="https://cygnus.cafe/index.xml" aria-label="RSS">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 11a9 9 0 0 1 9 9"></path>
                     <path d="M4 4a16 16 0 0 1 16 16"></path>
                     <circle cx="5" cy="19" r="1"></circle>
@@ -67,110 +85,6 @@
         </div>
     </nav>
 </header>
-
-<style>
- 
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    padding: 1.5rem 4rem;
-}
-
- 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    text-decoration: none;
-}
-
-.logo-icon {
-    font-size: 2.5rem;
-    display: inline-block;
-    animation: rotate 30s linear infinite;
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-}
-
-.logo-main {
-    font-family: 'Long Cang', cursive;
-    font-size: 1.5rem;
-    line-height: 1;
-    color: var(--cafe-latte);
-    letter-spacing: 0.05em;
-}
-
-.logo-sub {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-size: 0.75rem;
-    line-height: 1;
-    color: var(--text-secondary);
-    letter-spacing: 0.1em;
-    font-weight: 400;
-}
-
- 
-.nav {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-}
-
-.nav-link {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    padding: 0.5rem 1rem;
-    transition: color 0.3s ease;
-}
-
-.nav-icons {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-left: 1rem;
-    padding-left: 1rem;
-    border-left: 1px solid var(--border);
-}
-
-.nav-icons a:hover {
-    color: var(--cafe-latte);
-}
-
-.nav-icons a {
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    padding: 0.5rem;
-    transition: color 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .site-header {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem 1.5rem;
-    }
-    
-    .nav {
-        gap: 1.5rem;
-    }
-}
-</style>
-
 
     <main>
         
@@ -181,392 +95,93 @@
         
     </header>
 
-    <div class="posts-grid">
+    <div class="home-posts-list">
         
-        <article class="post-card">
-    <div class="post-meta">
-        <div class="post-date">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>
-            <time datetime="2026-01-26">2026年1月26日</time>
-        </div>
-        
-    </div>
-    <h3 class="post-title">
-        <a href="/posts/test1/">Test1</a>
-    </h3>
-    <p class="post-excerpt">
-        
-            
-        
-    </p>
-    <div class="post-footer">
-        <a href="/posts/test1/" class="read-more">
-            阅读全文
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-        </a>
-        
-    </div>
-</article>
-
-<style>
-.post-card {
-     
-}
-
-.post-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.post-date {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    color: var(--text-dim);
-}
-
-.post-category {
-    padding: 0.3rem 0.8rem;
-    background: rgba(212, 165, 116, 0.15);
-    border: 1px solid rgba(212, 165, 116, 0.3);
-    border-radius: 12px;
-    font-size: 0.85rem;
-    color: var(--cafe-latte);
-}
-
-.post-title {
-    font-size: 1.6rem;
-    margin: 1rem 0;
-}
-
-.post-title a {
-    color: var(--cafe-cream);
-    transition: color 0.3s ease;
-}
-
-.post-title a:hover {
-    color: var(--cafe-latte);
-}
-
-.post-excerpt {
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-}
-
-.post-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-}
-
-.read-more {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 500;
-    transition: gap 0.3s ease;
-}
-
-.read-more:hover {
-    gap: 1rem;
-}
-
-.post-tags {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.post-tag {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-}
-</style>
-
+        <article class="home-post-item">
+            <time class="home-post-date" datetime="2026-04-14">2026.04.14</time>
+            <div class="home-post-body">
+                <h3 class="home-post-title"><a href="/posts/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B01/">Vunltarget-a 靶场 write up</a></h3>
+                <div class="home-post-meta-row">
+                    
+                    
+                    <span class="home-post-tags">
+                        <span class="home-post-tag">#域环境</span>
+                    </span>
+                    
+                </div>
+            </div>
+            <a href="/posts/%E6%88%91%E7%9A%84%E7%AC%94%E8%AE%B01/" class="home-post-arrow" aria-label="阅读">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+        </article>
         
     </div>
 
     
 </div>
 
-<style>
-.list-page {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 4rem;
-}
-
-.page-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.page-header h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.page-description {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-}
-
-.item-count {
-    color: var(--text-dim);
-    font-size: 0.95rem;
-}
-
-.posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
-}
-
-@media (max-width: 768px) {
-    .list-page {
-        padding: 2rem 1.5rem;
-    }
-    
-    .page-header h1 {
-        font-size: 2.5rem;
-    }
-    
-    .posts-grid {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
-
     </main>
-
     <footer class="footer">
     <div class="footer-container">
         <div class="footer-left">
             <div class="footer-logo">
-                <span class="footer-swan">🦢</span>
-                <span class="footer-logo-text">Cygnus Cafe</span>
+                <svg class="footer-logo-svg" width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g class="logo-orbits">
+                        <ellipse cx="24" cy="24" rx="20" ry="5.5" stroke="#c8d8ff" stroke-width="1.2" transform="rotate(18, 24, 24)" opacity="0.65"/>
+                        <ellipse cx="24" cy="24" rx="16" ry="4.5" stroke="#a0b8ff" stroke-width="1" transform="rotate(-22, 24, 24)" opacity="0.5"/>
+                        <ellipse cx="24" cy="24" rx="11" ry="3" stroke="#c8d8ff" stroke-width="0.9" transform="rotate(35, 24, 24)" opacity="0.6"/>
+                        <ellipse cx="24" cy="24" rx="6" ry="1.8" stroke="#b8a0d0" stroke-width="0.7" transform="rotate(-8, 24, 24)" opacity="0.4"/>
+                    </g>
+                    <circle cx="24" cy="24" r="3.5" fill="none" stroke="#c8d8ff" stroke-width="0.4" opacity="0.35" class="logo-singularity-glow"/>
+                    <circle cx="24" cy="24" r="1.5" fill="#c8d8ff" opacity="0.85" class="logo-singularity"/>
+                </svg>
+                <span class="footer-logo-text">天鹅座X-1</span>
             </div>
             <p class="footer-description">
-                在星空下品一杯知识，在咖啡香中记录成长。这里是天鹅座咖啡馆，一个温暖的数字空间，专注于网络安全学习和生活分享。
+                深空探测日志
             </p>
             <div class="footer-social">
                 
                 <a href="https://github.com/iriya-emiya" target="_blank" rel="noopener" aria-label="GitHub">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
                 
                 
                 <a href="mailto:qianheshuiyuan419@gmail.com" aria-label="Email">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 </a>
                 
-                
-                
-                <a href="http://localhost:1313/index.xml" aria-label="RSS">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 11a9 9 0 0 1 9 9"></path>
-                        <path d="M4 4a16 16 0 0 1 16 16"></path>
-                        <circle cx="5" cy="19" r="1"></circle>
-                    </svg>
+                <a href="https://cygnus.cafe/index.xml" aria-label="RSS">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
                 </a>
             </div>
         </div>
-        
         <div class="footer-links">
-            <h4>内容分类</h4>
+            <h4>探测分类</h4>
             <ul>
-                <li><a href="/categories/security/">网络安全</a></li>
-                <li><a href="/categories/learning/">渗透测试</a></li>
-                <li><a href="/categories/life/">生活分享</a></li>
-                <li><a href="/tags/">标签云</a></li>
+                <li><a href="/categories/writeup/">靶场 Write-up</a></li>
+                <li><a href="/categories/vuln/">漏洞复现</a></li>
+                <li><a href="/categories/tools/">工具研究</a></li>
+                <li><a href="/categories/audit/">代码审计</a></li>
+                <li><a href="/tags/">靶场标签</a></li>
             </ul>
         </div>
-        
         <div class="footer-links">
-            <h4>关于本站</h4>
+            <h4>站点导航</h4>
             <ul>
-                <li><a href="/about/">关于我</a></li>
-                <li><a href="/links/">友情链接</a></li>
-                <li><a href="/posts/">文章归档</a></li>
-                <li><a href="/index.xml">RSS订阅</a></li>
+                <li><a href="/about/">关于本站</a></li>
+                <li><a href="/posts/">日志归档</a></li>
+                <li><a href="/index.xml">RSS 订阅</a></li>
             </ul>
         </div>
     </div>
-    
     <div class="footer-bottom">
-        <p>© 2026 <a href="http://localhost:1313/">Cygnus Cafe</a> · 在星空下品一杯知识 ☕✨</p>
+        <p>&copy; 2026 <a href="https://cygnus.cafe/">天鹅座X-1</a> &middot; 深空探测日志</p>
     </div>
 </footer>
 
-<style>
-.footer {
-    background: rgba(10, 14, 39, 0.8);
-    backdrop-filter: blur(20px);
-    border-top: 1px solid var(--border);
-    margin-top: 6rem;
-    padding: 4rem 4rem 2rem;
-}
-
-.footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 3rem;
-}
-
- 
-.footer-left {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.footer-swan {
-    font-size: 2rem;
-     
-}
-
-.footer-logo-text {
-    font-family: 'Long Cang', cursive;
-    font-size: 1.5rem;
-    color: var(--cafe-latte);
-}
-
-.footer-description {
-    color: var(--text-secondary);
-    line-height: 1.8;
-    font-size: 0.95rem;
-}
-
-.footer-social {
-    display: flex;
-    gap: 1rem;
-}
-
-.footer-social a {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(42, 47, 74, 0.6);
-    border-radius: 12px;
-    color: var(--text-secondary);
-    transition: all 0.3s ease;
-    border: 1px solid var(--border);
-}
-
-.footer-social a:hover {
-    background: rgba(212, 165, 116, 0.2);
-    color: var(--cafe-latte);
-    transform: translateY(-3px);
-}
-
- 
-.footer-links h4 {
-    font-size: 1.1rem;
-    color: var(--cafe-cream);
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 0.8rem;
-}
-
-.footer-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--cafe-latte);
-}
-
- 
-.footer-bottom {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    text-align: center;
-}
-
-.footer-bottom p {
-    color: var(--text-dim);
-    font-size: 0.9rem;
-    margin: 0;
-}
-
-.footer-bottom a {
-    color: var(--cafe-latte);
-    text-decoration: none;
-}
-
-.footer-bottom a:hover {
-    color: var(--star-glow);
-}
-
-@media (max-width: 1024px) {
-    .footer-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-    }
-    
-    .footer-left {
-        grid-column: 1 / -1;
-    }
-}
-
-@media (max-width: 768px) {
-    .footer {
-        padding: 3rem 1.5rem 1.5rem;
-    }
-    
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}
-</style>
-
-
     
     <script src="/js/cygnus-cafe.js"></script>
+    
 </body>
 </html>

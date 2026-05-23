@@ -15,8 +15,6 @@ paginate = 9
   # 社交链接
   github = "https://github.com/yourusername"
   email = "your-email@example.com"
-  twitter = "https://twitter.com/yourusername"
-  instagram = "https://instagram.com/yourusername"
 
 [menu]
   [[menu.main]]

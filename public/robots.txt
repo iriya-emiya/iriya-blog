@@ -5,4 +5,4 @@ Disallow: /private/
 
 Crawl-delay: 0
 
-Sitemap: http://localhost:1313/sitemap.xml
+Sitemap: https://cygnus.cafe/sitemap.xml

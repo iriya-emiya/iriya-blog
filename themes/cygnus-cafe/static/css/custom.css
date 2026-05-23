@@ -179,7 +179,7 @@ main,
 
 /* 文章标题 */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Noto Sans SC', sans-serif !important;
+    font-family: 'Noto Serif SC', serif !important;
     color: var(--cafe-cream) !important;
     font-weight: 700 !important;
 }

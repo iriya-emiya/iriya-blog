@@ -1,318 +1,34 @@
-{{ define "title" }}{{ .Site.Title }} - {{ .Site.Params.subtitle }}{{ end }}
+{{ define "title" }}{{ .Site.Title }} — {{ .Site.Params.home.subtitle | default .Site.Params.description }}{{ end }}
 
 {{ define "main" }}
 <section class="hero">
-    <div class="hero-content">
-        <div class="hero-badge">
-            <span>✨</span>
-            <span>欢迎来到星空咖啡馆</span>
-        </div>
-        <h1>在星空下<br>品一杯知识</h1>
-        <p class="hero-subtitle">网络安全学习笔记 · 技术探索 · 生活感悟</p>
-        <p class="hero-description">
-            在天鹅座的星空下，我们相聚在这间温暖的咖啡馆。这里记录着网络安全的学习旅程，分享着技术探索的点滴，也承载着生活中的美好瞬间。
-        </p>
-        <div class="hero-tags">
-            <span class="tag">🔐 网络安全</span>
-            <span class="tag">💻 渗透测试</span>
-            <span class="tag">⭐ 生活记录</span>
-        </div>
-        <div class="social-links">
-            {{ with .Site.Params.github }}
-            <a href="{{ . }}" target="_blank" rel="noopener" aria-label="GitHub">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-            </a>
-            {{ end }}
-            {{ with .Site.Params.email }}
-            <a href="mailto:{{ . }}" aria-label="Email">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                </svg>
-            </a>
-            {{ end }}
-            {{ with .Site.Params.twitter }}
-            <a href="{{ . }}" target="_blank" rel="noopener" aria-label="X">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-            </a>
-            {{ end }}
-            {{ with .Site.Params.instagram }}
-            <a href="{{ . }}" target="_blank" rel="noopener" aria-label="Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-            </a>
-            {{ end }}
-        </div>
-    </div>
-    <div class="hero-visual">
-        <div class="cafe-card">
-            <div class="cafe-icon">☕</div>
-            <h3>欢迎入座</h3>
-            <p>在这个温馨的数字咖啡馆里，每一篇文章都是精心调制的知识饮品。无论你是安全领域的探索者，还是热爱学习的旅人，这里都有适合你的那一杯。</p>
-            <div class="cafe-divider"></div>
-            <div class="cafe-stats">
-                <div class="stat">
-                    <span class="stat-number">{{ len (where .Site.RegularPages "Type" "posts") }}</span>
-                    <span class="stat-label">技术文章</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">{{ len .Site.Taxonomies.categories }}</span>
-                    <span class="stat-label">系列专题</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h1>{{ .Site.Params.home.title | default "深空中的技术探测" }}</h1>
+    <p class="hero-subtitle">{{ .Site.Params.home.subtitle | default .Site.Params.description }}</p>
 </section>
 
 <section class="posts-section">
     <div class="section-header">
-        <h2 class="section-title">📚 最新文章</h2>
+        <h2 class="section-title">&#x1F4E1; 最新探测日志</h2>
         <a href="{{ "posts" | relURL }}" class="view-all">
-            查看全部
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+            全部日志
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
     </div>
-    <div class="posts-grid">
+
+    <div class="home-posts-list">
         {{ $pages := where .Site.RegularPages "Type" "posts" }}
-        {{ range first 3 $pages }}
-        {{ partial "post-card.html" . }}
+        {{ range first 5 $pages }}
+        <article class="home-post-item">
+            <time class="home-post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+            <div class="home-post-body">
+                <h3 class="home-post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                {{ with index .Params.categories 0 }}<span class="home-post-cat">{{ . }}</span>{{ end }}
+            </div>
+            <a href="{{ .RelPermalink }}" class="home-post-arrow" aria-label="阅读">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+        </article>
         {{ end }}
     </div>
 </section>
-
-<style>
-/* Hero Section - 更宽的布局，两边不空洞 */
-.hero {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 6rem 6rem 4rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
-    align-items: center;
-}
-
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.2rem;
-    background: linear-gradient(135deg, rgba(155, 126, 186, 0.2), rgba(107, 140, 206, 0.2));
-    border: 1px solid rgba(164, 184, 255, 0.3);
-    border-radius: 50px;
-    font-size: 0.85rem;
-    color: var(--star-bright);
-    margin-bottom: 2rem;
-    backdrop-filter: blur(10px);
-}
-
-.hero h1 {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-size: 4.5rem;
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-}
-
-.hero-subtitle {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-.hero-description {
-    padding-left: 1.5rem;
-    border-left: 3px solid var(--cafe-mocha);
-    margin-bottom: 2rem;
-    line-height: 1.9;
-    font-size: 1rem;
-}
-
-/* 标签在一行 */
-.hero-tags {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 0.8rem;
-    margin: 2rem 0;
-    overflow-x: auto;
-}
-
-.hero-tags .tag {
-    padding: 0.5rem 1rem;
-    background: rgba(42, 47, 74, 0.6);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: var(--cafe-latte);
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.hero-tags .tag:hover {
-    background: rgba(212, 165, 116, 0.15);
-    border-color: var(--cafe-latte);
-    transform: translateY(-2px);
-}
-
-.cafe-card {
-    background: linear-gradient(135deg, rgba(42, 47, 74, 0.8) 0%, rgba(26, 31, 58, 0.9) 100%);
-    padding: 3rem;
-    border-radius: 24px;
-    border: 1px solid var(--border);
-    backdrop-filter: blur(20px);
-    position: relative;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
-.cafe-card::before {
-    content: '✨';
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    font-size: 3rem;
-    opacity: 0.6;
-    animation: sparkle 2s infinite ease-in-out;
-}
-
-@keyframes sparkle {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
-    50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
-}
-
-.cafe-icon {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-}
-
-.cafe-card h3 {
-    font-size: 2rem;
-    margin-bottom: 1.2rem;
-}
-
-.cafe-card p {
-    line-height: 1.8;
-    font-size: 1rem;
-}
-
-.cafe-divider {
-    height: 2px;
-    background: linear-gradient(90deg, var(--cafe-mocha), transparent);
-    margin: 2rem 0;
-}
-
-.cafe-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-}
-
-.stat {
-    text-align: center;
-    padding: 1.2rem;
-    background: rgba(10, 14, 39, 0.4);
-    border-radius: 14px;
-}
-
-.stat-number {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--cafe-latte);
-    display: block;
-    font-family: 'Noto Sans SC', sans-serif;
-}
-
-.stat-label {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    margin-top: 0.4rem;
-}
-
-/* Posts Section */
-.posts-section {
-    max-width: 1600px;
-    margin: 3rem auto 0;
-    padding: 0 6rem 5rem;
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2.5rem;
-}
-
-.section-title {
-    font-size: 2.2rem;
-}
-
-.view-all {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: gap 0.3s ease;
-}
-
-.view-all:hover {
-    gap: 1rem;
-}
-
-.posts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-@media (max-width: 1200px) {
-    .hero {
-        grid-template-columns: 1fr;
-        padding: 4rem 2rem;
-        gap: 4rem;
-    }
-    
-    .hero h1 {
-        font-size: 3.5rem;
-    }
-    
-    .posts-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .posts-section {
-        padding: 0 2rem 4rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        padding: 3rem 1.5rem;
-    }
-    
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-tags {
-        flex-direction: column;
-    }
-    
-    .posts-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .posts-section {
-        padding: 0 1.5rem 4rem;
-    }
-}
-</style>
 {{ end }}

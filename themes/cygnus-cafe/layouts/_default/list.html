@@ -4,17 +4,29 @@
 <div class="list-page">
     <header class="page-header">
         <h1>{{ .Title }}</h1>
-        {{ with .Description }}
-        <p class="page-description">{{ . }}</p>
-        {{ end }}
-        {{ if eq .Kind "taxonomy" }}
-        <p class="item-count">共 {{ len .Pages }} 篇文章</p>
-        {{ end }}
+        {{ with .Description }}<p class="page-description">{{ . }}</p>{{ end }}
+        {{ if eq .Kind "taxonomy" }}<p class="item-count">共 {{ len .Pages }} 篇日志</p>{{ end }}
     </header>
 
-    <div class="posts-grid">
+    <div class="home-posts-list">
         {{ range .Pages }}
-        {{ partial "post-card.html" . }}
+        <article class="home-post-item">
+            <time class="home-post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+            <div class="home-post-body">
+                <h3 class="home-post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                <div class="home-post-meta-row">
+                    {{ with index .Params.categories 0 }}<span class="home-post-cat">{{ . }}</span>{{ end }}
+                    {{ with .Params.tags }}
+                    <span class="home-post-tags">
+                        {{ range first 3 . }}<span class="home-post-tag">#{{ . }}</span>{{ end }}
+                    </span>
+                    {{ end }}
+                </div>
+            </div>
+            <a href="{{ .RelPermalink }}" class="home-post-arrow" aria-label="阅读">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+        </article>
         {{ end }}
     </div>
 
@@ -22,78 +34,18 @@
     <nav class="pagination">
         {{ if .Paginator.HasPrev }}
         <a href="{{ .Paginator.Prev.URL }}" class="pagination-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
             上一页
         </a>
         {{ end }}
-        
-        <span class="pagination-info">
-            第 {{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }} 页
-        </span>
-        
+        <span class="pagination-info">第 {{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }} 页</span>
         {{ if .Paginator.HasNext }}
         <a href="{{ .Paginator.Next.URL }}" class="pagination-item">
             下一页
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         {{ end }}
     </nav>
     {{ end }}
 </div>
-
-<style>
-.list-page {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 4rem;
-}
-
-.page-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.page-header h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.page-description {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-}
-
-.item-count {
-    color: var(--text-dim);
-    font-size: 0.95rem;
-}
-
-.posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
-}
-
-@media (max-width: 768px) {
-    .list-page {
-        padding: 2rem 1.5rem;
-    }
-    
-    .page-header h1 {
-        font-size: 2.5rem;
-    }
-    
-    .posts-grid {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
 {{ end }}

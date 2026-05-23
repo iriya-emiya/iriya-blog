@@ -1,199 +1,106 @@
 {{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
-<article class="single-post">
-    <header class="post-header">
-        <div class="post-meta-top">
-            <div class="post-date">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
-            </div>
-            {{ with .Params.categories }}
-            <div class="post-categories">
-                {{ range . }}
-                <a href="{{ "categories" | relURL }}/{{ . | urlize }}" class="category-link">{{ . }}</a>
+<article class="post-single">
+    <div class="post-layout">
+        <!-- Left: Meta Sidebar -->
+        <aside class="post-meta-sidebar">
+            <div class="meta-sidebar-inner">
+                <div class="meta-block">
+                    <span class="meta-label">探测日期</span>
+                    <span class="meta-value">{{ .Date.Format "2006-01-02" }}</span>
+                </div>
+                {{ with .Params.categories }}
+                <div class="meta-block">
+                    <span class="meta-label">分类</span>
+                    {{ range . }}
+                    <a href="{{ "categories" | relURL }}/{{ . | urlize }}" class="meta-value meta-link">{{ . }}</a>
+                    {{ end }}
+                </div>
                 {{ end }}
+                {{ with .Params.tags }}
+                <div class="meta-block">
+                    <span class="meta-label">靶场标签</span>
+                    <div class="meta-tags">
+                        {{ range . }}
+                        <a href="{{ "tags" | relURL }}/{{ . | urlize }}" class="meta-tag-item">{{ . }}</a>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                <div class="meta-block">
+                    <span class="meta-label">阅读时长</span>
+                    <span class="meta-value">{{ div (countwords .Content) 300 | default 1 }} 分钟</span>
+                </div>
             </div>
-            {{ end }}
+        </aside>
+
+        <!-- Center: Content -->
+        <div class="post-main">
+            <header class="post-header">
+                <div class="post-meta">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        {{ .Date.Format "2006年1月2日" }}
+                    </time>
+                    {{ with .Params.categories }}
+                    <span class="post-category">{{ index . 0 }}</span>
+                    {{ end }}
+                </div>
+                <h1 class="post-title">{{ .Title }}</h1>
+                {{ with .Description }}
+                <p class="post-description">{{ . }}</p>
+                {{ end }}
+            </header>
+
+            <div class="post-content">
+                {{ .Content }}
+            </div>
+
+            <footer class="post-footer">
+                <div class="post-nav">
+                    {{ with .PrevInSection }}
+                    <a href="{{ .RelPermalink }}" class="post-nav-item prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                        <div><span class="nav-label">上一篇</span><span class="nav-title">{{ .Title }}</span></div>
+                    </a>
+                    {{ end }}
+                    {{ with .NextInSection }}
+                    <a href="{{ .RelPermalink }}" class="post-nav-item next">
+                        <div><span class="nav-label">下一篇</span><span class="nav-title">{{ .Title }}</span></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    {{ end }}
+                </div>
+            </footer>
         </div>
-        
-        <h1 class="post-title">{{ .Title }}</h1>
-        
-        {{ with .Description }}
-        <p class="post-description">{{ . }}</p>
+
+        <!-- Right: Constellation TOC -->
+        {{ if and (gt (len .TableOfContents) 50) (ne .Params.toc false) }}
+        <aside class="post-toc">
+            <div class="toc-wrapper">
+                <div class="toc-constellation" aria-hidden="true">
+                    <svg class="toc-constellation-svg" viewBox="0 0 4 100" preserveAspectRatio="none">
+                        <line x1="2" y1="0" x2="2" y2="100" stroke="rgba(200,216,255,0.1)" stroke-width="0.5"/>
+                        <circle cx="2" cy="5" r="1.5" fill="rgba(200,216,255,0.15)" class="toc-node"/>
+                        <circle cx="2" cy="25" r="1.5" fill="rgba(200,216,255,0.15)" class="toc-node"/>
+                        <circle cx="2" cy="50" r="1.8" fill="rgba(200,216,255,0.2)" class="toc-node toc-node-major"/>
+                        <circle cx="2" cy="75" r="1.5" fill="rgba(200,216,255,0.15)" class="toc-node"/>
+                        <circle cx="2" cy="95" r="1.2" fill="rgba(200,216,255,0.1)" class="toc-node"/>
+                    </svg>
+                </div>
+                <div class="toc-content">
+                    <span class="toc-label">深空导航</span>
+                    <nav>
+                        {{ .TableOfContents }}
+                    </nav>
+                </div>
+            </div>
+        </aside>
         {{ end }}
-        
-        {{ if .Params.tags }}
-        <div class="post-tags-list">
-            {{ range .Params.tags }}
-            <a href="{{ "tags" | relURL }}/{{ . | urlize }}" class="tag-link">#{{ . }}</a>
-            {{ end }}
-        </div>
-        {{ end }}
-    </header>
-    
-    <div class="post-content">
-        {{ .Content }}
     </div>
-    
-    <footer class="post-footer-meta">
-        <div class="post-nav">
-            {{ with .PrevInSection }}
-            <a href="{{ .RelPermalink }}" class="post-nav-item post-nav-prev">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="19" y1="12" x2="5" y2="12"></line>
-                    <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
-                <div>
-                    <div class="nav-label">上一篇</div>
-                    <div class="nav-title">{{ .Title }}</div>
-                </div>
-            </a>
-            {{ end }}
-            
-            {{ with .NextInSection }}
-            <a href="{{ .RelPermalink }}" class="post-nav-item post-nav-next">
-                <div>
-                    <div class="nav-label">下一篇</div>
-                    <div class="nav-title">{{ .Title }}</div>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-            </a>
-            {{ end }}
-        </div>
-    </footer>
 </article>
-
-<style>
-.single-post {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-}
-
-.post-header {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 2px solid var(--border);
-}
-
-.post-meta-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.post-categories {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.category-link {
-    padding: 0.4rem 1rem;
-    background: rgba(212, 165, 116, 0.15);
-    border: 1px solid rgba(212, 165, 116, 0.3);
-    border-radius: 12px;
-    font-size: 0.9rem;
-    color: var(--cafe-latte);
-}
-
-.post-title {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-}
-
-.post-description {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin: 1.5rem 0;
-}
-
-.post-tags-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 1.5rem;
-}
-
-.tag-link {
-    color: var(--text-dim);
-    font-size: 0.95rem;
-}
-
-.post-content {
-    font-size: 1.1rem;
-    line-height: 1.9;
-}
-
-.post-footer-meta {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 2px solid var(--border);
-}
-
-.post-nav {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.post-nav-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-.post-nav-item:hover {
-    background: var(--card-hover);
-    transform: translateY(-4px);
-}
-
-.post-nav-next {
-    justify-content: flex-end;
-    text-align: right;
-}
-
-.nav-label {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    margin-bottom: 0.5rem;
-}
-
-.nav-title {
-    font-size: 1rem;
-    color: var(--cafe-latte);
-    font-weight: 600;
-}
-
-@media (max-width: 768px) {
-    .single-post {
-        padding: 2rem 1.5rem;
-    }
-    
-    .post-title {
-        font-size: 2rem;
-    }
-    
-    .post-meta-top {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-}
-</style>
 {{ end }}

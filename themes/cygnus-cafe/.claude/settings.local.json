@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(hugo --environment development)",
+      "Bash(hugo version *)",
+      "Read(//d/Hugo/**)",
+      "Bash(hugo.exe --environment development)",
+      "Bash(hugo.exe)"
+    ]
+  }
+}
